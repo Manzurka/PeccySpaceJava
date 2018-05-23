@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -33,7 +34,7 @@ public class User {
 	private String name;
 	
 	@Column
-	@Pattern(regexp=".+@.+\\..+")
+	@Pattern(regexp=".+@amazon.com")
 	private String email;
 	
 	@Column
@@ -63,6 +64,15 @@ public class User {
         joinColumns = @JoinColumn(name = "user_id"), 
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
+	
+	
+	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+	private List<Post> posts;
+	
+	
+	@OneToMany(mappedBy = "user_comments", fetch = FetchType.LAZY)
+	private List<Comment> comments;
+	
 	
 	public User() {
 		
@@ -167,6 +177,16 @@ public class User {
 		this.roles = roles;
 	}
 	
+	
+	
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt=new Date();
@@ -176,4 +196,14 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt=new Date();
 	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+	
+	
 }
