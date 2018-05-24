@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.manzuraz.peccy.models.Post;
 import com.manzuraz.peccy.models.User;
 import com.manzuraz.peccy.services.PostService;
 import com.manzuraz.peccy.services.UserService;
 
 @RestController
+
 public class PostsAPI {
 	private final PostService ps;
 	private final UserService us;
@@ -23,13 +25,11 @@ public class PostsAPI {
 		this.ps=ps;
 		this.us=us;
 	}
-	
+	@JsonIgnore
 	@RequestMapping("/posts") //display all notes
-	public List<Post> index(Principal principal, Model model){
-		User currentUser = us.findByEmail(principal.getName());
-		System.out.println(currentUser.getName());
-		model.addAttribute("currentUser", currentUser);
+	public List<Post> index(){
 		return ps.all_posts();
+		
 	}
 
 	@PostMapping("/add") //create a new note

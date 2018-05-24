@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.manzuraz.peccy.models.User;
 import com.manzuraz.peccy.services.PostService;
 import com.manzuraz.peccy.services.UserService;
@@ -19,7 +20,7 @@ public class PostsController {
 		this.ps=ps;
 		this.us=us;
 	}
-	
+	@JsonIgnore
 	@RequestMapping("/")
 		public String dashboard(Principal principal, Model model) {
 		

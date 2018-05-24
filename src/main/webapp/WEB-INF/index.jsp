@@ -13,7 +13,7 @@
        
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
          <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-         <script type="text/javascript" src="js/script.js"></script>
+         <script type="text/javascript" src="js/weather.js"></script>
 
 	</head>
 	<body> 
@@ -117,7 +117,14 @@
               </ul>
             </nav>
           </div>
-
+		 <nav>
+                <form action="">
+                    <input id="search" type="text" name="search" placeholder="Enter city"/>            
+                    <input id="btn" type="submit" value="Search Weather"/>
+                </form>
+       	 </nav>
+       	 <div id="result">
+       	 </div>
           <h3>Your Amazon News:</h3>
 
           <div id="url"></div>
