@@ -15,7 +15,7 @@ public class PostService {
 	private final CommentRepository cr;
 	
 	
-	PostService(PostRepository pr, CommentRepository cr) {
+	public PostService(PostRepository pr, CommentRepository cr) {
 		this.pr = pr;
 		this.cr = cr;
 	}
@@ -28,6 +28,14 @@ public class PostService {
 	
 	public List<Comment> all_comments(){
 		return cr.findAll();
+	}
+	
+	public Post savePost(Post post) {
+		return pr.save(post);
+	}
+	
+	public Post findById(Long id) {
+		return pr.findById(id).get();
 	}
 	
 }

@@ -28,6 +28,10 @@ public class Post {
     private Long id;
 	
 	@Column
+	@Size(min=1)
+	private String title;
+	
+	@Column
 	@Size(min=10)
 	private String post;
 	
@@ -63,6 +67,14 @@ public class Post {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getPost() {
