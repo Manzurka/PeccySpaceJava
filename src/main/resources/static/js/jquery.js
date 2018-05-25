@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
     $.get('/posts', function(all_posts){
     	console.log(all_posts);
         for(var i=0; i < all_posts.length; i++){
@@ -7,7 +7,7 @@ $(document).ready(function(){
                    <h2>${all_posts[i].title}</h2>
                    <form action="/post/${all_posts[i].id}/update" method="post">
                        <p>${all_posts[i].post} <button id="edit">Edit</button></p>
-                       <p class="italic">posted by ${all_posts[i].author.getName()} </p>
+                   
                    </form>
                    
                    <button id="delete">Delete</button>
@@ -49,4 +49,3 @@ $(document).ready(function(){
 //         return false;
 //    })
     
-});

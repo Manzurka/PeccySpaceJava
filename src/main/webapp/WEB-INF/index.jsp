@@ -12,21 +12,32 @@
         </style>
        
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-         <script type="text/javascript" src="js/weather.js"></script>
 
 	</head>
 	<body> 
 		<div class="jumbotron jumbotron-fluid">
 	        <div class="container">
-	            <h1 class="display-4">WELCOME to MyPeccySpace!</h1>
+	            <h1 class="display-4">WELCOME to TeccySpace!</h1>
 	            <p class="lead">The Seller Support associate hub for Questions and Answers</p>
 	        </div>
         </div>
-        <div class="left-side">
-        	<div class="welcome">
-	            <h1>Registration</h1>
-	            <form:form method="POST" action="/registration" modelAttribute="user">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register">Register</button>
+      </div>
+      
+      <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Register</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             
+			<p><form:errors path="user.*"/></p>
+
+                    <form:form method="POST" action="/registration" modelAttribute="user">
 			       <div class="row">
 	                    <div class="col-md-6">
 				            <form:label path="name">Name:</form:label>
@@ -73,17 +84,33 @@
 			        	</div>
 	           		</div>
 		            <p><form:errors path="passwordConfirmation"/></p>
-		        	<input type="submit" value="Register"/>
+		        	<input type="submit" value="Register" class="btn btn-success"/>
 	    		</form:form>
-        	</div>
-        	<div class ="welcome">
-            	<h1>Login</h1>
-            
-	            <c:if test="${errorMessage != null}">
-		        	<span><c:out value="${errorMessage}"></c:out></span>
-		    	</c:if>
-		    	
-		    	<form method="POST" action="/login">
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      &nbsp;&nbsp;&nbsp;
+      
+        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">Login</button>
+      
+      <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+
+                  <form method="POST" action="/login" id="loginForm">
 			        <div class="row">
                   		<div class="col-md-4">
 				            <label for="username">Email: </label>
@@ -92,18 +119,22 @@
                 	</div>
 			        <div class="row">
                   		<div class="col-md-4">
-				            <label for="password">Password: </label>
-				            <input type="password" id="password" name="password"/>
+				            <label>Password: </label>
+				            <input type="password" name="password"/>
 			       		</div>
                 	</div>
 			        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			        <input type="submit" value="Login"/>
+			        <br>
+			        <input type="submit" value="Login" class="btn btn-info"/>
 		    	</form>
-	   		</div>
-		 	<c:if test="${logoutMessage != null}" >
-		       <span><c:out value="${logoutMessage}"></c:out></span>
-		   	</c:if>
-	  </div>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
 	   <div class="right-side">
           <h3>Associate Quicklinks:</h3>
           <div id="tools" align='right'>
@@ -117,30 +148,45 @@
               </ul>
             </nav>
           </div>
-		 <nav>
-                <form action="">
-                    <input id="search" type="text" name="search" placeholder="Enter city"/>            
-                    <input id="btn" type="submit" value="Search Weather"/>
-                </form>
-       	 </nav>
-       	 <div id="result">
-       	 </div>
-          <h3>Your Amazon News:</h3>
 
           <div id="url"></div>
 
         </div>
 
-        <footer>
-          <span>Contact Us</span>
-          <br>
-          <span><a href="">1-800-lab206-az</a></span>
-          <br>
-          <a href="https://www.facebook.com"><img src="static/images/social_icons.png" width="350"></a>
-        </footer>
-	  
-	    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	  	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+        
+        
+            $('#loginForm').formValidation({
+                framework: 'bootstrap',
+                excluded: ':disabled',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    username: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The username is required'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The password is required'
+                            }
+                        }
+                    }
+                }
+            });
+        
+     
+        
+        </script>
 	</body>
 </html>

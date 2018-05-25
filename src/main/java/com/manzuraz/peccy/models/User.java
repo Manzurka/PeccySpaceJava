@@ -21,6 +21,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.manzuraz.peccy.models.Role;
 @Entity
 @Table(name="users")
@@ -64,7 +66,6 @@ public class User {
         joinColumns = @JoinColumn(name = "user_id"), 
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
-	
 	
 	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
 	private List<Post> posts;
