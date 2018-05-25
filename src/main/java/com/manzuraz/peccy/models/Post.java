@@ -35,13 +35,13 @@ public class Post {
 	@Size(min=10)
 	private String post;
 	
-	// The User that has submitted the post/question
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
-	private User author;
-	
-	@OneToMany(mappedBy = "post_comments", fetch = FetchType.LAZY)
-	private List<Comment> comments;
+//	// The User that has submitted the post/question
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "user_id")
+//	private User author;
+//	
+//	@OneToMany(mappedBy = "post_comments", fetch = FetchType.LAZY)
+//	private List<Comment> comments;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="MM/dd/yyyy")
@@ -101,22 +101,22 @@ public class Post {
 		this.updatedAt = updatedAt;
 	}
 
-	public User getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(User author) {
-		this.author = author;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-	
+//	public User getAuthor() {
+//		return author;
+//	}
+//
+//	public void setAuthor(User author) {
+//		this.author = author;
+//	}
+//
+//	public List<Comment> getComments() {
+//		return comments;
+//	}
+//
+//	public void setComments(List<Comment> comments) {
+//		this.comments = comments;
+//	}
+//	
 	
 	
 	

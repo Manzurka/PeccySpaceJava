@@ -66,9 +66,9 @@ public class User {
     private List<Role> roles;
 	
 	
-	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
-	private List<Post> posts;
-	
+//	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+//	private List<Post> posts;
+//	
 	
 	@OneToMany(mappedBy = "user_comments", fetch = FetchType.LAZY)
 	private List<Comment> comments;
@@ -179,13 +179,13 @@ public class User {
 	
 	
 	
-	public List<Post> getPosts() {
-		return posts;
-	}
-
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
-	}
+//	public List<Post> getPosts() {
+//		return posts;
+//	}
+//
+//	public void setPosts(List<Post> posts) {
+//		this.posts = posts;
+//	}
 
 	@PrePersist
 	protected void onCreate() {

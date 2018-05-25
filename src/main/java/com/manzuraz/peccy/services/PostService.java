@@ -20,11 +20,9 @@ public class PostService {
 		this.cr = cr;
 	}
 	
-	
 	public List<Post> all_posts(){
 		return pr.findAll();
 	}
-	
 	
 	public List<Comment> all_comments(){
 		return cr.findAll();
@@ -38,4 +36,11 @@ public class PostService {
 		return pr.findById(id).get();
 	}
 	
+	public void delete(Post p) {
+		pr.delete(p);
+	}
+	
+//	public List<Post> findByPost(String word){
+//		return pr.findByPostContaining(word);
+//	}
 }

@@ -86,3 +86,11 @@ h5 {
     margin-bottom: 0px;
     margin-top: 10px;
   }
+
+ button {
+  	background-color:orange;
+  }
+  
+ form:errors {
+ 	color: red;
+  }

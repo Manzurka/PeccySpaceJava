@@ -138,3 +138,37 @@ background:rgb(235, 122, 17);
     font-weight: bold;
     color: orange;
 }
+
+#update, #edit, #delete {
+	background-color:black;
+	color:white;
+}
+
+#w {
+	float:right;
+}
+
+.post textarea {
+	width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ff8040;
+    border-radius: 4px;
+    background-color: #f9dc99;
+    resize: none;
+}
+
+.post {
+	padding:20px;
+	margin:10px;
+}
+
+.post button{
+	border-radius: 4px;
+	display:inline;
+}
+
+#logoutForm{
+	float:right;
+}

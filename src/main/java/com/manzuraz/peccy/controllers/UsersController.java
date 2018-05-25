@@ -20,7 +20,7 @@ import com.manzuraz.peccy.validator.UserValidator;
 public class UsersController {
 	private final UserValidator userValidator;
 	private final UserService us;
-	private String[] sites = new String[] {"AZA","SJO","GFK","SEA"};
+	private String[] sites = new String[] {"AZA","SJO"};
 	
 	public UsersController(UserService us, UserValidator userValidator) {
 		this.us=us;
